@@ -8,8 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @RestController
+@RequestMapping("/api")
 public class LoginController {
 
     private User user = new User("shivb11", "Shiv@2000");
@@ -39,7 +43,10 @@ public class LoginController {
         return new ResponseEntity<>(new LoginDto("Password updated successfully", true), HttpStatus.OK);
     }
 
-
+   @GetMapping("/hi")
+   public String demo() {
+	   return "hi this is backend response";
+   }
 
     /// creating  Session-based Authentication
 //    @PostMapping("/login")
